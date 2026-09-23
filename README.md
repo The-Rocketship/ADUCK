@@ -2,6 +2,8 @@
 
 A modern, fast, Windows Forms GUI-based replacement for Microsoft's classic Active Directory Users and Computers (`dsa.msc`) MMC snap-in, designed natively in PowerShell with a **default dark mode** tailored for Windows Server and admin workstations.
 
+![ADUCK Interface](ADUCK.png)
+
 ---
 
 ## Key Features
