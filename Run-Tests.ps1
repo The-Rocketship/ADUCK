@@ -64,6 +64,12 @@ if ($itObjs.Count -lt 3) { throw "Expected objects in IT OU" }
 $search = Search-ADDirectoryObjects -Query "Alex"
 if ($search.Count -eq 0) { throw "Search operation failed" }
 
+# Verify inspecting disabled user (e.g. Claire Dupont with 32px user_disabled icon)
+$finObjs = Get-ADContainerObjects -ContainerDN "OU=Finance,OU=Corporate,DC=corp,DC=contoso,DC=local"
+$cdupont = $finObjs | Where-Object { $_.sAMAccountName -eq "cdupont" }
+Update-InspectorDrawer -item $cdupont
+if (-not $picInspectorAvatar.Image -or $lblInspAttr1.Text -notlike "*Disabled*") { throw "Failed inspecting disabled user" }
+
 # Verify toggle account state
 $amercer = $itObjs | Where-Object { $_.sAMAccountName -eq "amercer" }
 Set-ADObjectState -DistinguishedName $amercer.DistinguishedName -Enable $false

@@ -533,7 +533,7 @@ function New-CustomIcon {
     switch ($IconType) {
         'domain' {
             # Globe with latitude / longitude lines
-            $pen = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb(56, 189, 248), 1.6 * $scale)
+            $pen = [System.Drawing.Pen]::new([System.Drawing.Color]::FromArgb(56, 189, 248), [float](1.6 * $scale))
             $brush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(28, 64, 94))
             $g.FillEllipse($brush, 2 * $scale, 2 * $scale, 12 * $scale, 12 * $scale)
             $g.DrawEllipse($pen, 2 * $scale, 2 * $scale, 12 * $scale, 12 * $scale)
@@ -580,7 +580,7 @@ function New-CustomIcon {
             $g.FillPath($brush, $path)
             $path.Dispose(); $brush.Dispose()
             # Red Slash
-            $redPen = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb(239, 68, 68), 2.2 * $scale)
+            $redPen = [System.Drawing.Pen]::new([System.Drawing.Color]::FromArgb(239, 68, 68), [float](2.2 * $scale))
             $g.DrawLine($redPen, 3 * $scale, 13 * $scale, 13 * $scale, 3 * $scale)
             $redPen.Dispose()
         }
@@ -596,7 +596,7 @@ function New-CustomIcon {
             $lockBrush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(245, 158, 11))
             $g.FillRectangle($lockBrush, 9 * $scale, 9 * $scale, 6 * $scale, 6 * $scale)
             # Lock Shackle
-            $lockPen = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb(245, 158, 11), 1.5 * $scale)
+            $lockPen = [System.Drawing.Pen]::new([System.Drawing.Color]::FromArgb(245, 158, 11), [float](1.5 * $scale))
             $g.DrawArc($lockPen, 10 * $scale, 6 * $scale, 4 * $scale, 5 * $scale, 180, 180)
             $lockBrush.Dispose(); $lockPen.Dispose()
         }
@@ -631,7 +631,7 @@ function New-CustomIcon {
             $tealBrush.Dispose(); $baseBrush.Dispose(); $screenInner.Dispose()
         }
         'refresh' {
-            $pen = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb(56, 189, 248), 2 * $scale)
+            $pen = [System.Drawing.Pen]::new([System.Drawing.Color]::FromArgb(56, 189, 248), [float](2 * $scale))
             $g.DrawArc($pen, 2 * $scale, 2 * $scale, 12 * $scale, 12 * $scale, 45, 270)
             $brush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(56, 189, 248))
             $poly = @(
@@ -643,7 +643,7 @@ function New-CustomIcon {
             $pen.Dispose(); $brush.Dispose()
         }
         'key' {
-            $pen = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb(251, 191, 36), 1.8 * $scale)
+            $pen = [System.Drawing.Pen]::new([System.Drawing.Color]::FromArgb(251, 191, 36), [float](1.8 * $scale))
             $g.DrawEllipse($pen, 2.5 * $scale, 2.5 * $scale, 6 * $scale, 6 * $scale)
             $g.DrawLine($pen, 7 * $scale, 7 * $scale, 13.5 * $scale, 13.5 * $scale)
             $g.DrawLine($pen, 11 * $scale, 11 * $scale, 13 * $scale, 9 * $scale)
@@ -651,13 +651,13 @@ function New-CustomIcon {
             $pen.Dispose()
         }
         'search' {
-            $pen = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb(148, 163, 184), 2 * $scale)
+            $pen = [System.Drawing.Pen]::new([System.Drawing.Color]::FromArgb(148, 163, 184), [float](2 * $scale))
             $g.DrawEllipse($pen, 2.5 * $scale, 2.5 * $scale, 7 * $scale, 7 * $scale)
             $g.DrawLine($pen, 8.5 * $scale, 8.5 * $scale, 13.5 * $scale, 13.5 * $scale)
             $pen.Dispose()
         }
         'properties' {
-            $pen = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb(56, 189, 248), 1.8 * $scale)
+            $pen = [System.Drawing.Pen]::new([System.Drawing.Color]::FromArgb(56, 189, 248), [float](1.8 * $scale))
             $brush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(56, 189, 248))
             # Sliders
             $g.DrawLine($pen, 2 * $scale, 4 * $scale, 14 * $scale, 4 * $scale)
@@ -669,13 +669,13 @@ function New-CustomIcon {
             $pen.Dispose(); $brush.Dispose()
         }
         'plus' {
-            $pen = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb(34, 197, 94), 2.4 * $scale)
+            $pen = [System.Drawing.Pen]::new([System.Drawing.Color]::FromArgb(34, 197, 94), [float](2.4 * $scale))
             $g.DrawLine($pen, 8 * $scale, 2.5 * $scale, 8 * $scale, 13.5 * $scale)
             $g.DrawLine($pen, 2.5 * $scale, 8 * $scale, 13.5 * $scale, 8 * $scale)
             $pen.Dispose()
         }
         'move' {
-            $pen = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb(168, 85, 247), 1.8 * $scale)
+            $pen = [System.Drawing.Pen]::new([System.Drawing.Color]::FromArgb(168, 85, 247), [float](1.8 * $scale))
             $g.DrawLine($pen, 2 * $scale, 8 * $scale, 13 * $scale, 8 * $scale)
             $brush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(168, 85, 247))
             $poly = @(
@@ -687,7 +687,7 @@ function New-CustomIcon {
             $pen.Dispose(); $brush.Dispose()
         }
         'delete' {
-            $pen = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb(239, 68, 68), 2.2 * $scale)
+            $pen = [System.Drawing.Pen]::new([System.Drawing.Color]::FromArgb(239, 68, 68), [float](2.2 * $scale))
             $g.DrawLine($pen, 3.5 * $scale, 3.5 * $scale, 12.5 * $scale, 12.5 * $scale)
             $g.DrawLine($pen, 12.5 * $scale, 3.5 * $scale, 3.5 * $scale, 12.5 * $scale)
             $pen.Dispose()
